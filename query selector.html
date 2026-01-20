@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset ="UTF-8">
+<title>Continuous Color Cycle</title>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        font-family: sans-serif;
+        transition: background-color 1s ease;
+    }
+    h1{
+        background: rgba(255,255,255,0.8);
+        padding: 20px;
+        border-radius: 10px;
+    }
+</style>
+</head>
+<body>
+    <h1 id="display-text">change colors</h1>
+    <button id="action-btn">
+        Click me
+    </button>
+    <script>
+        const textElement=document.querySelector("#display-text");
+        const btnElement=document.querySelector("#action-btn");
+        const bodyElement=document.querySelector("body");
+
+        const colors=["#ff5733", "#33ff57", "#3357ff", "#f333ff", "#33fff5", "#f5ff33"];
+        let index=0;
+
+        btnElement.addEventListener("click",function(){
+            textElement.textContent="Colors are changing...";
+            bodyElement.style.backgroundColor="#2ec3e8";
+            textElement.style.color="white";
+            btnElement.style.backgroundColor="#145d78";
+        })
+
+        function changeColors(){
+            const selectedColor=colors[index];
+        bodyElement.style.backgroundColor=selectedColor;
+
+        textElement.textcontent='Current Color'+selectedColor;
+            index=(index+1) % colors.length;
+        }
+        setInterval(changeColors,2000);
+    </script>
+</body>
+</html>
