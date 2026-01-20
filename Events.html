@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<body onload="welcomeMessage()"> <h2 id="heading"
+      onmouseover="changeColor(this)"
+      onmouseout="resetColor(this)">Apna Profile Banayein
+    </h2>
+<h2> Event used to handle the user actions on web page</h2>
+<h2>onclick onmouseout onmouseover onchange onkeydown onload</h2>
+<p>Naam likhiye:</p>
+<input type="text" onkeydown="typingAlert()" placeholder="Type karo...">
+<p>Favorite Language Select Karein:</p>
+<select onchange="updateChoice(this.value)">
+  <option value="JavaScript">JavaScript</option>
+  <option value="Python">Python</option>
+  <option value="Java">Java</option>
+</select>
+<p id="result"></p>
+<button onclick="saveData()">Save Profile</button>
+<script>
+  //1.ONLOAD
+  function welcomeMessage(){
+    alert("Page Load Ho Gaya! Swagat Hai.");
+  }
+  //2.ONMOUSEOVER
+  function changeColor(element){
+    element.style.color = "red";
+  }
+  //3.ONMOUSEOUT
+  function resetColor(element){
+    element.style.color = "black";
+  }
+  //4.ONKEYDOWN
+  function typingAlert(){
+    console.log("User kuch type kar raha hai...");
+  }
+  //5.ONCHANGE
+  function updateChoice(val){
+    document.getElementById("result").innerHTML = "Aapne chuna:" +val;
+  }
+  //6.ONCLICK
+  function saveData(){
+    alert("Data Save Ho Gaya!");
+  }
+</script>
+
+</body>
